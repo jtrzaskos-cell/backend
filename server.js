@@ -6,14 +6,11 @@ const chatRoutes = require('./routes/chat');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middlewares
-app.use(cors());                 // permite o frontend acessar
-app.use(express.json());         // lê JSON do body
+app.use(cors());
+app.use(express.json());
 
-// Rotas
 app.use('/api', chatRoutes);
 
-// Rota de teste
 app.get('/', (req, res) => {
   res.json({ 
     mensagem: 'Backend do Sabidão rodando! 🦉',
